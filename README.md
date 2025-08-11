@@ -1,11 +1,10 @@
 # <i class="fa-brands fa-github fa-spin"></i>Stats SVG<i class="fa-solid fa-chart-line fa-fade"></i>
 
 *A highly customizable stats SVG generator*
+![GitHub Stats SVG](https://stats-svg-steel.vercel.app/api/github-status?username=hk151109)
 
 This project generates a visually appealing, highly customizable SVG image displaying GitHub user statistics. It's designed to be embedded in GitHub profiles or other web pages to showcase a user's GitHub activity and contributions.
 
-> [!WARNING]
-> This project is still under development so it may contain bugs and other issues. I'm actively testing it and fixing bugs as I find them. Feel free to sync with the latest code if you want to stay updated. Also, Any bugs/issues report is appreciated :)
 
 ## Features
 
@@ -63,18 +62,6 @@ Since the GitHub API only allows 5k requests per hour, the api provided by this 
 
 You can customize the appearance of the SVG by modifying the `config.js` file. This includes changing colors, dimensions, and other visual aspects of the generated image. If you want to modify the SVG code, you can do so in the `/src/card/renderStats.js` file.
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request and open an issue.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Enjoy showcasing your GitHub stats in cyberpunk style! 🚀
-
-#Cyberpunk2077 #Cyberpunk:Edgerunners
+##Result
 
 ![GitHub Stats SVG](https://stats-svg-steel.vercel.app/api/github-status?username=hk151109)
