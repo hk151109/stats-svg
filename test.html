@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Stats Dashboard</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeInDown 1s ease-out;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.search-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 50px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  animation: fadeInUp 1s ease-out 0.3s both;
+  width: 100%;
+  max-width: 500px;
+}
+
+.input-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.input-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.input-wrapper input:focus {
+  border-color: #4ecdc4;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+}
+
+.search-btn {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border: none;
+  color: white;
+  padding: 16px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.search-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+}
+
+.loading {
+  display: none;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 3px solid #4ecdc4;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+.result-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.stats-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.stats-container img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.stats-container img:hover {
+  transform: scale(1.02);
+}
+
+.error {
+  background: rgba(255, 107, 107, 0.2);
+  border: 1px solid rgba(255, 107, 107, 0.4);
+  color: #ff6b6b;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+.github-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .search-section {
+    padding: 30px 20px;
+    margin: 0 10px 40px;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .stats-container {
+    padding: 20px;
+    margin: 0 10px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>
+      <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+      </svg>
+      GitHub Stats Dashboard
+    </h1>
+    <p>Discover beautiful insights about any GitHub profile</p>
+  </div>
+
+  <div class="search-section">
+    <div class="input-group">
+      <div class="input-wrapper">
+        <input type="text" id="username" placeholder="Enter GitHub username..." maxlength="39">
+      </div>
+      <button class="search-btn" onclick="showStats()">
+        Generate Stats
+      </button>
+    </div>
+    
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Fetching your GitHub stats...</p>
+    </div>
+  </div>
+
+  <div class="result-section" id="result"></div>
+</div>
+
+<script>
+function showStats() {
+  const username = document.getElementById('username').value.trim();
+  const resultDiv = document.getElementById('result');
+  const loadingDiv = document.getElementById('loading');
+  
+  if (!username) {
+    resultDiv.innerHTML = '<div class="error">Please enter a GitHub username</div>';
+    return;
+  }
+  
+  // Validate username format (basic GitHub username rules)
+  const usernameRegex = /^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i;
+  if (!usernameRegex.test(username)) {
+    resultDiv.innerHTML = '<div class="error">Please enter a valid GitHub username</div>';
+    return;
+  }
+  
+  // Show loading state
+  loadingDiv.style.display = 'block';
+  resultDiv.innerHTML = '';
+  
+  // Create image element
+  const img = new Image();
+  const imgUrl = `https://git-stats.harikrishnan.tech//api/github-status?username=${username}`;
+  
+  img.onload = function() {
+    loadingDiv.style.display = 'none';
+    resultDiv.innerHTML = `
+      <div class="stats-container">
+        <img src="${imgUrl}" alt="GitHub Stats for ${username}" loading="lazy">
+      </div>
+    `;
+  };
+  
+  img.onerror = function() {
+    loadingDiv.style.display = 'none';
+    resultDiv.innerHTML = `
+      <div class="error">
+        Unable to load stats for "${username}". Please check if the username exists and try again.
+      </div>
+    `;
+  };
+  
+  // Start loading the image
+  img.src = imgUrl;
+}
+
+// Allow Enter key to trigger search
+document.getElementById('username').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    showStats();
+  }
+});
+
+// Auto-focus on input when page loads
+window.addEventListener('load', function() {
+  document.getElementById('username').focus();
+});
+</script>
+</body>
+</html>

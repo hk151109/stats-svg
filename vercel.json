@@ -15,6 +15,10 @@
     {
       "source": "/api/github-status",
       "destination": "/api/index.js"
+    },
+    {
+      "source": "/tryout",
+      "destination": "/test.html"
     }
   ],
   "headers": [
