@@ -1,0 +1,35 @@
+{
+  "functions": {
+    "api/*.js": {
+      "memory": 512,
+      "maxDuration": 10
+    }
+  },
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "https://github.com/hk151109/stats-svg"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/github-status",
+      "destination": "/api/index.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
+        }
+      ]
+    }
+  ]
+}
