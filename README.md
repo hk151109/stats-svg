@@ -1,7 +1,7 @@
 # <i class="fa-brands fa-github fa-spin"></i>Stats SVG<i class="fa-solid fa-chart-line fa-fade"></i>
 *A highly customizable stats SVG generator*
 
-![UI Preview](ui.png)
+![GitHub Stats SVG](https://stats-svg-steel.vercel.app/api/github-status?username=torvalds)
 
 This project generates a visually appealing, highly customizable SVG image displaying GitHub user statistics. It's designed to be embedded in GitHub profiles or other web pages to showcase a user's GitHub activity and contributions.
 
@@ -9,10 +9,11 @@ This project generates a visually appealing, highly customizable SVG image displ
 
 Want to see your GitHub stats? Open the below link and Enter your username to generate your personalized stats SVG!
 
-[Stats-SVG](https://git-stats.harikrishnan.tech/tryout)
+<a href="https://git-stats.harikrishnan.tech/tryout" target="_blank">Stats-SVG</a>
 ```
 https://git-stats.harikrishnan.tech/tryout
 ```
+![UI Preview](UI.png)
 
 ### 📋 Quick Template for Your Profile
 
@@ -26,7 +27,7 @@ Once you've tested your stats, add this to your GitHub profile README:
 
 ### 🎯 Example Usage
 
-Here's how it looks with a real username:
+Here's how it looks with my username:
 
 ![GitHub Stats SVG](https://stats-svg-steel.vercel.app/api/github-status?username=hk151109)
 
