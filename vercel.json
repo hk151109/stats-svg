@@ -17,6 +17,10 @@
       "destination": "/api/index.js"
     },
     {
+      "source": "/api/leetcode-status",
+      "destination": "/api/index.js"
+    },
+    {
       "source": "/tryout",
       "destination": "/test.html"
     }
