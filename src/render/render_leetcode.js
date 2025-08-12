@@ -276,10 +276,17 @@ async function renderStats(stats) {
         .title { 
           font-family: 'ChakraPetch', Helvetica; 
           fill: ${elementsConfig.text_title_color}; 
-          font-size: 30px; 
+          font-size: 32px; 
           font-weight: bold; 
           opacity: 0; 
           animation: flikering 0.4s 2, change-opacity 1s ease-in-out 0.8s forwards; 
+        }
+
+        .section-title { 
+          font-family: 'ChakraPetch', Helvetica; 
+          fill: ${elementsConfig.text_title_color}; 
+          font-size: 28px; 
+          font-weight: bold; 
         }
 
         .label { 
@@ -308,11 +315,17 @@ async function renderStats(stats) {
         .icon { fill: ${elementsConfig.icon_color}; }
 
         .lang-box {
-          fill: none;
+          fill: rgba(255,255,255,0.03);
           stroke: ${elementsConfig.icon_color};
           stroke-width: 2;
           opacity: 0;
           animation: change-opacity 0.5s ease-out forwards;
+        }
+
+        .lang-box:hover {
+          fill: rgba(255,255,255,0.08);
+          stroke-width: 2.5;
+          transition: all 0.2s ease;
         }
       </style>
 
@@ -340,28 +353,28 @@ async function renderStats(stats) {
       </line>
 
       <g transform="translate(30, 100)" class="animate" style="animation-delay: 0.8s">
-        <rect x="-10" y="-24" width="347" height="32" class="lang-box" style="animation-delay: 1.1s" />
+        <rect x="-10" y="-24" width="347" height="32" rx="4" class="lang-box" style="animation-delay: 1.1s" />
         <path class="icon" d="${Icons.contest_icon}" transform="translate(5, -18) scale(0.04)"/>
         <text x="40" y="0" class="label">Attended Contests</text>
         <text x="320" y="0" class="value" text-anchor="end">${convertNumberUnit(contests.attendedContestsCount)}</text>
       </g>
 
       <g transform="translate(30, 140)" class="animate" style="animation-delay: 0.88s">
-        <rect x="-10" y="-24" width="347" height="32" class="lang-box" style="animation-delay: 1.27s" />
+        <rect x="-10" y="-24" width="347" height="32" rx="4" class="lang-box" style="animation-delay: 1.27s" />
         <path class="icon" d="${Icons.rating_icon}" transform="translate(7, -18) scale(0.04)"/>
         <text x="40" y="0" class="label">Rating</text>
         <text x="320" y="0" class="value" text-anchor="end">${Math.round(contests.rating)}</text>
       </g>
 
       <g transform="translate(30, 180)" class="animate" style="animation-delay: 0.96s">
-        <rect x="-10" y="-24" width="347" height="32" class="lang-box" style="animation-delay: 1.44s" />
+        <rect x="-10" y="-24" width="347" height="32" rx="4" class="lang-box" style="animation-delay: 1.44s" />
         <path class="icon" d="${Icons.ranking_icon}" transform="translate(7, -18) scale(0.04)"/>
         <text x="40" y="0" class="label">Global Ranking</text>
         <text x="320" y="0" class="value" text-anchor="end">${convertNumberUnit(contests.globalRanking)}</text>
       </g>
 
       <g transform="translate(30, 220)" class="animate" style="animation-delay: 1.04s">
-        <rect x="-10" y="-24" width="347" height="32" class="lang-box" style="animation-delay: 1.61s" />
+        <rect x="-10" y="-24" width="347" height="32" rx="4" class="lang-box" style="animation-delay: 1.61s" />
         <path class="icon" d="${Icons.top_percentage_icon}" transform="translate(4, -18) scale(0.04)"/>
         <text x="40" y="0" class="label">Top Percentage</text>
         <text x="320" y="0" class="value" text-anchor="end">${contests.topPercentage.toFixed(2)}%</text>
@@ -375,10 +388,10 @@ async function renderStats(stats) {
 
       <!-- Top Languages Section -->
       <g transform="translate(400, 100)">
-        <text y="0" class="title" font-size="28px">Top Languages</text>
+        <text y="0" class="section-title">Top Languages</text>
         ${topLanguages.map((lang, i) => `
           <g transform="translate(0, ${40 + i * 40})" class="animate" style="animation-delay: ${0.4 + i * 0.1}s">
-            <rect x="-10" y="-24" width="270" height="32" class="lang-box" style="animation-delay: ${0.5 + i * 0.1}s" />
+            <rect x="-10" y="-24" width="270" height="32" rx="4" class="lang-box" style="animation-delay: ${0.5 + i * 0.1}s" />
             <path class="icon" d="${Icons.language_icon}" transform="translate(5, -18) scale(0.04)"/>
             <text x="40" y="0" class="label">${lang.languageName}</text>
             <text x="250" y="0" class="value" text-anchor="end">${lang.problemsSolved}</text>
@@ -388,10 +401,10 @@ async function renderStats(stats) {
 
       <!-- Top Skills Section -->
       <g transform="translate(750, 100)">
-        <text y="0" class="title" font-size="28px">Top Skills</text>
+        <text y="0" class="section-title">Top Skills</text>
         ${topSkills.map((skill, i) => `
           <g transform="translate(0, ${40 + i * 40})" class="animate" style="animation-delay: ${0.8 + i * 0.1}s">
-            <rect x="-10" y="-24" width="270" height="32" class="lang-box" style="animation-delay: ${0.9 + i * 0.1}s" />
+            <rect x="-10" y="-24" width="270" height="32" rx="4" class="lang-box" style="animation-delay: ${0.9 + i * 0.1}s" />
             <path class="icon" d="${Icons.skill_icon}" transform="translate(5, -18) scale(0.04)"/>
             <text x="40" y="0" class="label">${skill.tag_name}</text>
             <text x="250" y="0" class="value" text-anchor="end">${skill.problems_solved}</text>
