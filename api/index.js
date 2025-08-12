@@ -3,6 +3,7 @@ import fetchGitHubData from '../src/fetch/fetch_github.js';
 import fetchLeetCodeStats from '../src/fetch/fetch_leetcode.js';
 import fetchSteamStatus from '../src/fetch/fetch_steam.js';
 import renderStats from '../src/render/render_github.js';
+import renderLeetCodeStats from '../src/render/render_leetcode.js';
 
 async function fetchGitHubDataWithRetry(username, maxRetries = 5, retryDelay = 1000) {
   let lastError;
@@ -84,7 +85,13 @@ export default async function handler(req, res) {
       const stats = await fetchLeetCodeStatsWithRetry(username);
       console.timeEnd('fetch leetcode stats');
       console.log(stats);
-      res.status(200).json(stats);
+      console.time('render stats');
+      const svg = await renderLeetCodeStats(stats);
+      console.timeEnd('render stats');
+      res.setHeader('Content-Type', 'image/svg+xml');
+      console.time('send svg');
+      res.send(svg);
+      console.timeEnd('send svg');
 
     } else if (req.url.includes('steam-status')) {
       console.time('fetch steam status');
