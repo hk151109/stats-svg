@@ -45,7 +45,7 @@ Here's how both stats look together:
 ![GitHub Stats SVG](https://git-stats.harikrishnan.tech/api/github-status?username=hk151109)
 
 **LeetCode Stats:**
-![LeetCode Stats SVG](https://git-stats.harikrishnan.tech/api/leetcode-status?username=harikrishnangoppal0411)
+![LeetCode Stats SVG](https://git-stats.harikrishnan.tech/api/leetcode-status?username=harikrishnangopal0411)
 
 ## ✨ Features
 
