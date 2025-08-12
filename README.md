@@ -1,7 +1,7 @@
 # <i class="fa-brands fa-github fa-spin"></i>Stats SVG<i class="fa-solid fa-chart-line fa-fade"></i>
 *A highly customizable stats SVG generator*
 
-![GitHub Stats SVG](https://stats-svg-steel.vercel.app/api/github-status?username=torvalds)
+![GitHub Stats SVG](https://git-stats.harikrishnan.tech/api/github-status?username=torvalds)
 
 This project generates a visually appealing, highly customizable SVG image displaying GitHub user statistics. It's designed to be embedded in GitHub profiles or other web pages to showcase a user's GitHub activity and contributions.
 
@@ -20,7 +20,7 @@ https://git-stats.harikrishnan.tech/tryout
 Once you've tested your stats, add this to your GitHub profile README:
 
 ```markdown
-![GitHub Stats](https://stats-svg-steel.vercel.app/api/github-status?username=YOUR_USERNAME)
+![GitHub Stats](https://git-stats.harikrishnan.tech/api/github-status?username=YOUR_USERNAME)
 ```
 
 **Replace `YOUR_USERNAME` with your actual GitHub username**
@@ -29,8 +29,8 @@ Once you've tested your stats, add this to your GitHub profile README:
 
 Here's how it looks with my username:
 
-![GitHub Stats SVG](https://stats-svg-steel.vercel.app/api/github-status?username=hk151109)
-
+![GitHub Stats SVG](https://git-stats.harikrishnan.tech/api/github-status?username=hk151109)
+![leetcode Stats SVG](https://git-stats.harikrishnan.tech/api/leetcode-status?username=harikrishnangoppal0411)
 ## ✨ Features
 
 - 📊 **Real-time Data**: Fetches live GitHub user data using the GitHub GraphQL API
@@ -77,7 +77,7 @@ Since the GitHub API only allows 5k requests per hour, the public API provided b
 - Once deployed, Vercel will provide you with a domain (e.g., `your-project.vercel.app`)
 - You can use your instance by replacing the domain in the API URL:
   ```
-  https://your-project.vercel.app/api/github-status?username=YOUR_GITHUB_USERNAME
+  https://git-stats.harikrishnan.tech/api/github-status?username=YOUR_GITHUB_USERNAME
   ```
 
 ### 🔧 Troubleshooting
