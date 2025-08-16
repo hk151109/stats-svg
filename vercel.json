@@ -8,7 +8,7 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "https://github.com/hk151109/stats-svg"
+      "destination": "https://github.com/hk151109/git-stats"
     }
   ],
   "rewrites": [

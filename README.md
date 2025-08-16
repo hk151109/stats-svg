@@ -1,15 +1,15 @@
-# <i class="fa-brands fa-github fa-spin"></i>Stats SVG<i class="fa-solid fa-chart-line fa-fade"></i>
-*A highly customizable stats SVG generator for GitHub and LeetCode*
+# <i class="fa-brands fa-github fa-spin"></i>Git Stats<i class="fa-solid fa-chart-line fa-fade"></i>
+*A highly customizable stats generator for GitHub and LeetCode*
 
-![GitHub Stats SVG](https://git-stats.harikrishnan.tech/api/github-status?username=torvalds)
+![GitHub Git Stats](https://git-stats.harikrishnan.tech/api/github-status?username=torvalds)
 
 This project generates visually appealing, highly customizable SVG images displaying both GitHub and LeetCode user statistics. It's designed to be embedded in GitHub profiles or other web pages to showcase your coding journey across multiple platforms.
 
 ## 🚀 Try It Out!
 
-Want to see your GitHub and LeetCode stats? Open the link below and enter your username to generate your personalized stats SVG for both platforms!
+Want to see your GitHub and LeetCode stats? Open the link below and enter your username to generate your personalized stats for both platforms!
 
-<a href="https://git-stats.harikrishnan.tech/tryout" target="_blank">Stats-SVG</a>
+<a href="https://git-stats.harikrishnan.tech/tryout" target="_blank">Git-Stats</a>
 ```
 https://git-stats.harikrishnan.tech/tryout
 ```
@@ -42,10 +42,10 @@ Once you've tested your stats, add these to your GitHub profile README:
 Here's how both stats look together:
 
 **GitHub Stats:**
-![GitHub Stats SVG](https://git-stats.harikrishnan.tech/api/github-status?username=hk151109)
+![GitHub Stats](https://git-stats.harikrishnan.tech/api/github-status?username=hk151109)
 
 **LeetCode Stats:**
-![LeetCode Stats SVG](https://git-stats.harikrishnan.tech/api/leetcode-status?username=harikrishnangoppal0411)
+![LeetCode Stats](https://git-stats.harikrishnan.tech/api/leetcode-status?username=harikrishnangoppal0411)
 
 ## ✨ Features
 
@@ -78,7 +78,7 @@ Since the GitHub API only allows 5k requests per hour, the public API provided b
 ### 1. Fork and Prepare the Repository
 1. **Fork this repository** to your GitHub account
 2. **[Create a Personal Access Token (PAT)](https://github.com/settings/tokens/new)**
-   - Set the token name (e.g., "stats-svg")
+   - Set the token name (e.g., "git-stats")
    - Select scopes: `repo` and `user`
    - Copy the generated token (you won't see it again so save it!)
 
